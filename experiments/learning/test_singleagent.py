@@ -47,9 +47,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Single agent reinforcement learning example script using TakeoffAviary')
     parser.add_argument('--exp',                           type=str,            help='The experiment folder written as ./results/save-<env>-<algo>-<obs>-<act>-<time_date>', metavar='')
     ARGS = parser.parse_args()
-
+    os.chdir("results")
     #### Load the model from file ##############################
     algo = ARGS.exp.split("-")[2]
+    print(ARGS.exp+'/success_model.zip')
 
     if os.path.isfile(ARGS.exp+'/success_model.zip'):
         path = ARGS.exp+'/success_model.zip'
